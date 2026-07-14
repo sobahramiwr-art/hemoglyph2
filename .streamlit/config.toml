@@ -1,6 +1,6 @@
 [theme]
-primaryColor = "#8A6A2B"                 # طلایی برنزی
-backgroundColor = "#F5F1E8"
-secondaryBackgroundColor = "#DDD2BE"
-textColor = "#2E2B26"
+primaryColor = "#7D1F2A"
+backgroundColor = "#FAF9F5"
+secondaryBackgroundColor = "#EEE6D7"
+textColor = "#202020"
 font = "serif"
