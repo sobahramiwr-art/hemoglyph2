@@ -1,6 +1,6 @@
 [theme]
-primaryColor="#7A1F1F"
-backgroundColor="#FAF8F2"
-secondaryBackgroundColor="#EFE7D5"
-textColor="#222222"
-font="serif"
+primaryColor = "#8B2332"                 # قرمز شرابی (خون، پزشکی، اصالت)
+backgroundColor = "#F7F4EC"              # کاغذ عاجی قدیمی
+secondaryBackgroundColor = "#E7DED0"     # پوستۀ چرمی روشن
+textColor = "#2A2A2A"                    # خاکستری تیره
+font = "serif"
