@@ -10,9 +10,6 @@ from prediction import predict_2year_risks
 from disease_guidelines import DISEASE_GUIDELINES
 from AI import BloodLabChatbot
 
-
-
-st.title("BloodLab")
 st.markdown("""
 <style>
     /* Import Vazir font */
@@ -183,7 +180,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 TRANSLATIONS = {
     "en": {
-        "title": "🧬 hemoglyph",
+        "title": "🧬Hemoglyph",
         "subtitle": "##### Decoding the Ancient Language of Your Blood",
         "presets_heading": "##### 🚀 Quick Patient Presets",
         "workflow_heading": "📋Steps",
