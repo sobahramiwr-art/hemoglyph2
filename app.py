@@ -10,87 +10,87 @@ from prediction import predict_2year_risks
 from disease_guidelines import DISEASE_GUIDELINES
 from AI import BloodLabChatbot
 
+st.set_page_config(
+    page_title="Hemoglyph",
+    page_icon="🧬",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+st.logo("logo.png")
 st.markdown("""
 <style>
-    /* Import Vazir font */
-    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v33.1.0/dist/font-face.css');
 
-    /* ============================
-       PROTECT STREAMLIT ICONS
-       ============================ */
-    [data-testid="stDecoration"],
-    [data-testid="stSidebar"],
-    .st-emotion-cache-1dp5m8t,
-    .st-emotion-cache-1hskb1m,
-    .st-emotion-cache-1v02s4x,
-    .st-emotion-cache-1n76nqr,
-    .st-emotion-cache-1o3jp5z,
-    .st-emotion-cache-1p1m4ay,
-    .st-emotion-cache-1p8iqe6,
-    .st-emotion-cache-1p4g8p1,
-    .st-emotion-cache-1p5wlh4,
-    .st-emotion-cache-1p6s9q4,
-    .st-emotion-cache-10trblm,
-    .st-emotion-cache-1q8ddzd,
-    .st-emotion-cache-183lzff,
-    .st-emotion-cache-1cvow4s,
-    .st-emotion-cache-16txtl3,
-    .st-emotion-cache-1kyxreq,
-    .st-emotion-cache-1v0mbdj,
-    .st-emotion-cache-1r6slb0,
-    .st-emotion-cache-1xarl3l,
-    .st-emotion-cache-1wmy9hl,
-    .st-emotion-cache-1avcm0n,
-    .st-emotion-cache-1f3w014,
-    .st-emotion-cache-1vtueo4,
-    .st-emotion-cache-1v7uza4,
-    .st-emotion-cache-1l6ema2,
-    .st-emotion-cache-1dp5m8t,
-    .st-emotion-cache-1hskb1m,
-    .st-emotion-cache-1v02s4x,
-    .st-emotion-cache-1n76nqr,
-    .st-emotion-cache-1o3jp5z,
-    .st-emotion-cache-1p1m4ay,
-    .st-emotion-cache-1p8iqe6,
-    .st-emotion-cache-1p4g8p1,
-    .st-emotion-cache-1p5wlh4,
-    .st-emotion-cache-1p6s9q4,
-    svg,
-    .material-icons,
-    [class*="material-icons"],
-    [class*="icon"] {
-        font-family: 'Material Icons', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-    }
+/* ==========================
+   LOAD VAZIR FONT
+   ========================== */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v33.1.0/dist/font-face.css');
 
-    /* ============================
-       GENERAL PAGE FONT (safe)
-       ============================ */
-    .stApp, body, p, span, div, label, input, textarea, button,
-    h1, h2, h3, h4, h5, h6,
-    .stMarkdown, .stText, .stAlert, .stButton,
-    .stChatMessage, .stSelectbox, .stTextInput, .stNumberInput,
-    .stCheckbox, .stExpander, .stDataFrame, .stTabs, .stSidebar,
-    .metric-label, .metric-value {
-        font-family: 'Inter', 'Vazir', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
+/* ==========================
+   PROTECT STREAMLIT ICONS
+   ========================== */
+svg,
+.material-icons,
+[class*="material-icons"],
+[class*="icon"]{
+    font-family: 'Material Icons' !important;
+}
 
-    /* ============================
-       PERSIAN TEXT ONLY
-       ============================ */
-    [lang="fa"],
-    .persian-text,
-    *[lang="fa"] *,
-    *:lang("fa") {
-        font-family: 'Vazir', 'Inter', sans-serif !important;
-    }
+/* ==========================
+   DEFAULT APP FONT
+   ========================== */
+html,
+body,
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stSidebar"],
+[data-testid="stHeader"],
+[data-testid="stToolbar"]{
+    font-family: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
 
-    /* ============================
-       OPTIONAL RTL SUPPORT
-       ============================ */
-    [dir="rtl"] {
-        direction: rtl;
-        text-align: right;
-    }
+/* ==========================
+   PERSIAN TEXT
+   ========================== */
+h1,h2,h3,h4,h5,h6,
+p,
+span,
+div,
+label,
+button,
+input,
+textarea,
+li,
+td,
+th,
+caption,
+small,
+strong,
+em,
+.stMarkdown,
+.stText,
+.stAlert,
+.stButton,
+.stTextInput,
+.stNumberInput,
+.stSelectbox,
+.stCheckbox,
+.stRadio,
+.stExpander,
+.stTabs,
+.stDataFrame,
+.stMetric,
+.stChatMessage{
+    font-family: "Vazir","Inter",sans-serif !important;
+}
+
+/* ==========================
+   RTL SUPPORT
+   ========================== */
+[dir="rtl"]{
+    direction: rtl;
+    text-align: right;
+}
+
 </style>
 """, unsafe_allow_html=True)
 if not hasattr(FeatureCategory, "BONE_MINERAL"):
@@ -123,12 +123,6 @@ QUAL_FEATURES = {
     "UrineBlood": ["Negative", "Trace", "Small", "Moderate", "Large"]
 }
 
-st.set_page_config(
-    page_title="Hemoglyph",
-    page_icon="🧬",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 
 st.markdown("""
 <style>
@@ -180,7 +174,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 TRANSLATIONS = {
     "en": {
-        "title": "🧬Hemoglyph",
+        "title": "🧬 Hemoglyph",
         "subtitle": "##### Decoding the Ancient Language of Your Blood",
         "presets_heading": "##### 🚀 Quick Patient Presets",
         "workflow_heading": "📋Steps",
@@ -273,7 +267,7 @@ TRANSLATIONS = {
         "chat_summary_info": "📋 **خلاصه آزمایش شما**",
         "previous_btn": "⬅️ مرحله قبل",
         "next_btn1": "مرحله بعد: پنل‌ها ➡️",
-        "next_btn2": "مرحله بعد: وارد کردن اطلاعات ➡️",
+        "next_btn2": "مرحله بعد: بیومارکرها ➡️",
         "next_btn3": "🚀 اجرای تحلیل تشخیصی",
         "sidebar_reset": "##### ⚙️ بازنشانی داده‌ها",
         "clear_btn": "🧹 پاک کردن همه ورودی‌ها",
@@ -288,6 +282,7 @@ TRANSLATIONS = {
         "summary_language": "fa",
     }
 }
+rr , ll =  st.columns([1,8])
 if "lang" not in st.session_state:
     st.session_state.lang = "en"
 if "t" not in st.session_state:
@@ -391,12 +386,14 @@ PRESETS = {
         "Creatinine": 0.8, "BUN": 13.0, "Sodium": 140.0, "Potassium": 4.0, "ALT": 21.0, "AST": 19.0, "CRP": 1.5
     }
 }
-
-st.title(t["title"])
-st.markdown(t["subtitle"])
+with rr: 
+    st.image("logo.png", width=120)
+with ll:    
+    st.title(t["title"])
+    st.markdown(t["subtitle"])
+    st.image("1.png", width=500)    
 st.markdown("---")
 
-# Quick presets
 st.markdown(t["presets_heading"])
 cols = st.columns(len(PRESETS))
 for i, (name, preset_vals) in enumerate(PRESETS.items()):
@@ -670,8 +667,7 @@ elif step == 4:
     derived_markers = compute_all_derived(clean_inputs, patient_prof["Age"], "male" if patient_prof["Sex"] == 1 else "female")
     combined_data = {**clean_inputs, **derived_markers}
     active_diagnoses = interpret_lab_data(clean_inputs, derived_markers, patient_prof)
-    risk_predictions = predict_2year_risks(clean_inputs, derived_markers, patient_prof, active_diagnoses)
-
+    risk_predictions = predict_2year_risks(clean_inputs, derived_markers, patient_prof, active_diagnoses)   
     if "chatbot" not in st.session_state:
         st.session_state.chatbot = BloodLabChatbot()
     chatbot = st.session_state.chatbot
@@ -1065,12 +1061,12 @@ elif step == 4:
                     api_key = st.secrets["GROQ_API_KEY"]
                 except (FileNotFoundError, KeyError):
                     return "Groq API key not configured."
-
+    
             try:
                 client = groq.Client(api_key=api_key)
-
+    
                 lang = st.session_state.get("lang", "en")
-
+    
                 abnormal_labs = []
                 gender_lower = "male" if patient_info.get("Sex") == 1 else "female"
                 for key, val in inputs.items():
@@ -1103,38 +1099,38 @@ elif step == 4:
                         incomplete_names.append(name)
                     else:
                         noncompat_names.append(name)
-
+    
                 risk_text = ", ".join(
                     [f"{r.get('nameEn','')} ({round(r.get('probability',0)*100,1)}% - {r.get('riskLevel','')})"
                      for r in risks if r.get("status") in ("Evaluated", "AlreadyDiagnosed")]
                 ) if risks else "None"
-
+    
                 if lang == "fa":
                     prompt = f"""
         شما یک پزشک مشاور بالینی هستید. بر اساس اطلاعات زیر یک **گزارش روایی و یکپارچه** (نه لیست) به فارسی بنویسید.
         یافته‌های مهم را با پیشنهادات عملی ترکیب کنید و به تفاسیر بالینی ارجاع دهید.
-
+    
         ### مشخصات بیمار
         سن {patient_info.get('Age')}، {"مرد" if patient_info.get('Sex')==1 else "زن"}، BMI {derived.get('BMI','N/A')}، سیگار {"بله" if patient_info.get('Smoking')==1 else "خیر"}
-
+    
         ### آزمایش‌های غیرطبیعی
         {json.dumps(abnormal_labs, indent=2) if abnormal_labs else "همه موارد در محدوده طبیعی"}
-
+    
         ### شاخص‌های محاسباتی
         eGFR: {derived.get('eGFR','N/A')} | ACR: {derived.get('ACR','N/A')} | HOMA-IR: {derived.get('HOMA_IR','N/A')}
-
+    
         ### بیماری‌های سازگار با گایدلاین (تأیید شده با شواهد)
         {', '.join(compat_names) if compat_names else 'موردی یافت نشد'}
-
+    
         ### بیماری‌های رد شده
         {', '.join(noncompat_names) if noncompat_names else 'موردی نیست'}
-
+    
         ### بیماری‌های نیازمند آزمایش بیشتر
         {', '.join(incomplete_names) if incomplete_names else 'موردی نیست'}
-
+    
         ### ریسک‌های ۲ ساله
         {risk_text}
-
+    
         **دستور تهیه گزارش:**
         - یک متن روان و منسجم بنویس، نه لیست گلوله‌ای.
         - ابتدا مهم‌ترین یافته‌های غیرطبیعی را مرور کن و ارتباط آن‌ها را با بیماری‌های سازگار توضیح بده.
@@ -1148,28 +1144,28 @@ elif step == 4:
                     prompt = f"""
         You are a clinical consultant. Based on the data below, write a **cohesive narrative report** (not a bullet list) in English.
         Weave the important findings together with practical suggestions and clinical interpretation references.
-
+    
         ### Patient
         Age {patient_info.get('Age')}, {"Male" if patient_info.get('Sex')==1 else "Female"}, BMI {derived.get('BMI','N/A')}, Smoking {"Yes" if patient_info.get('Smoking')==1 else "No"}
-
+    
         ### Abnormal Labs
         {json.dumps(abnormal_labs, indent=2) if abnormal_labs else "All within normal limits"}
-
+    
         ### Derived Metrics
         eGFR: {derived.get('eGFR','N/A')} | ACR: {derived.get('ACR','N/A')} | HOMA-IR: {derived.get('HOMA_IR','N/A')}
-
+    
         ### Guideline-Compatible Conditions (confirmed)
         {', '.join(compat_names) if compat_names else 'None'}
-
+    
         ### Ruled Out Conditions
         {', '.join(noncompat_names) if noncompat_names else 'None'}
-
+    
         ### Conditions Requiring Further Data
         {', '.join(incomplete_names) if incomplete_names else 'None'}
-
+    
         ### 2-Year Risk Predictions
         {risk_text}
-
+    
         **Report Instructions:**
         - Write a smooth, flowing narrative, not bullet points.
         - Start by reviewing the most significant abnormal findings and explain their relationship to the compatible conditions.
@@ -1179,7 +1175,7 @@ elif step == 4:
         - **Reference the clinical interpretations** by mentioning disease names within the narrative (e.g., "According to ADA criteria, the patient meets the threshold for type 2 diabetes").
         - Use real values; do not invent. Do not give a definitive diagnosis.
         """
-
+    
                 messages = [
                     {"role": "system", "content": "You are a clinical consultant. Write a cohesive, evidence-based report that integrates findings, references, and recommendations."},
                     {"role": "user", "content": prompt}
@@ -1191,7 +1187,7 @@ elif step == 4:
                     max_tokens=1500
                 )
                 return response.choices[0].message.content
-
+    
             except Exception as e:
                 return f"Failed to generate AI interpretation: {str(e)}"
         if st.button(t["generate_expert_btn"], type="primary", use_container_width=True):
@@ -1205,7 +1201,7 @@ elif step == 4:
                     )
                 else:
                     st.markdown(ai_report)
-
+    
     with tab5:
         st.markdown(t["chat_heading"])
         st.markdown(t["chat_desc"])
