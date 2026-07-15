@@ -9,13 +9,7 @@ from interpretation import interpret_lab_data
 from prediction import predict_2year_risks
 from disease_guidelines import DISEASE_GUIDELINES
 from AI import BloodLabChatbot
-st.markdown("""
-<style>
-html, body, .stApp{
-    font-family: serif !important;
-}
-</style>
-""", unsafe_allow_html=True)
+
 st.markdown("""
 <style>
     /* Import Vazir font */
