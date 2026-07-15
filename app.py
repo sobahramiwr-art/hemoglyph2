@@ -13,178 +13,25 @@ st.markdown("""
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/****************************************/
-/*          Global Font                 */
-/****************************************/
-
+/* فونت پیش‌فرض (فارسی) */
 html, body, .stApp{
-    font-family: 'Cormorant Garamond', serif !important;
-    color:#23211E;
-    background-color:#F6F3EB;
+    font-family: 'Vazirmatn', sans-serif;
 }
 
-/****************************************/
-/*          Headings                    */
-/****************************************/
-
-h1,h2,h3,h4,h5,h6{
-
-    font-family:'Cinzel', serif !important;
-    color:#7D2230;
-    letter-spacing:1.2px;
-    font-weight:700;
-
+/* فقط متن انگلیسی */
+:lang(en){
+    font-family:'Cormorant Garamond', serif;
 }
 
-/****************************************/
-/*             Paragraph                */
-/****************************************/
-
-p,label,span,div{
-
-    font-family:'Cormorant Garamond', serif !important;
-    color:#23211E;
-    font-size:18px;
-
-}
-
-/****************************************/
-/*          Sidebar                     */
-/****************************************/
-
-section[data-testid="stSidebar"]{
-
-    background:#DED2BE;
-
-}
-
-section[data-testid="stSidebar"] *{
-
-    font-family:'Cormorant Garamond', serif !important;
-
-}
-
-/****************************************/
-/*             Buttons                  */
-/****************************************/
-
-.stButton>button{
-
-    background:#7D2230;
-    color:white;
-    border-radius:10px;
-    border:none;
-    padding:0.5rem 1rem;
-    font-family:'Cormorant Garamond', serif !important;
-    font-size:18px;
-    transition:0.3s;
-
-}
-
-.stButton>button:hover{
-
-    background:#9A2A3A;
-    transform:translateY(-2px);
-
-}
-
-/****************************************/
-/*          Input Boxes                 */
-/****************************************/
-
-input,
-textarea{
-
-    font-family:'Cormorant Garamond', serif !important;
-
-}
-
-/****************************************/
-/*          SelectBox                   */
-/****************************************/
-
-div[data-baseweb="select"] *{
-
-    font-family:'Cormorant Garamond', serif !important;
-
-}
-
-/****************************************/
-/*          Metric Cards                */
-/****************************************/
-
-div[data-testid="metric-container"]{
-
-    background:#F8F4EB;
-
-    border-left:5px solid #7D2230;
-
-    border-radius:12px;
-
-    padding:15px;
-
-}
-
-/****************************************/
-/*          Tables                      */
-/****************************************/
-
-table{
-
-    font-family:'Cormorant Garamond', serif !important;
-
-}
-
-/****************************************/
-/*         Progress Bar                 */
-/****************************************/
-
-.stProgress > div > div > div{
-
-    background:#7D2230;
-
-}
-
-/****************************************/
-/*          Expander                    */
-/****************************************/
-
-details{
-
-    border-radius:10px;
-
-    border:1px solid #D4C4A8;
-
-}
-
-/****************************************/
-/*        Text Input Border             */
-/****************************************/
-
-input{
-
-    border-radius:8px !important;
-
-}
-
-/****************************************/
-/*          Hyperlinks                  */
-/****************************************/
-
-a{
-
-    color:#7D2230;
-
-}
-
-a:hover{
-
-    color:#A52A3C;
-
+/* فقط تیترهای انگلیسی */
+h1:lang(en),
+h2:lang(en),
+h3:lang(en){
+    font-family:'Cinzel', serif;
 }
 
 </style>
