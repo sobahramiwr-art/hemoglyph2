@@ -9,33 +9,7 @@ from interpretation import interpret_lab_data
 from prediction import predict_2year_risks
 from disease_guidelines import DISEASE_GUIDELINES
 from AI import BloodLabChatbot
-st.markdown("""
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-/* فونت پیش‌فرض (فارسی) */
-html, body, .stApp{
-    font-family: 'Vazirmatn', sans-serif;
-}
-
-/* فقط متن انگلیسی */
-:lang(en){
-    font-family:'Cormorant Garamond', serif;
-}
-
-/* فقط تیترهای انگلیسی */
-h1:lang(en),
-h2:lang(en),
-h3:lang(en){
-    font-family:'Cinzel', serif;
-}
-
-</style>
-""", unsafe_allow_html=True)
 st.markdown("""
 <style>
     /* Import Vazir font */
