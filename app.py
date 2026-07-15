@@ -9,7 +9,46 @@ from interpretation import interpret_lab_data
 from prediction import predict_2year_risks
 from disease_guidelines import DISEASE_GUIDELINES
 from AI import BloodLabChatbot
+st.markdown("""
+<style>
 
+/* تمام متن‌های انگلیسی */
+html, body, [class*="css"], .stApp {
+    font-family: Georgia, "Times New Roman", Garamond, serif !important;
+}
+
+/* عنوان‌ها */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, "Times New Roman", Garamond, serif !important;
+}
+
+/* دکمه‌ها */
+button {
+    font-family: Georgia, "Times New Roman", Garamond, serif !important;
+}
+
+/* ورودی‌ها */
+input, textarea {
+    font-family: Georgia, "Times New Roman", Garamond, serif !important;
+}
+
+/* Selectbox */
+div[data-baseweb="select"] * {
+    font-family: Georgia, "Times New Roman", Garamond, serif !important;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] * {
+    font-family: Georgia, "Times New Roman", Garamond, serif !important;
+}
+
+/* DataFrame */
+table {
+    font-family: Georgia, "Times New Roman", Garamond, serif !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
 st.markdown("""
 <style>
     /* Import Vazir font */
