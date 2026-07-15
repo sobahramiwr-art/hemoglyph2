@@ -1,6 +1,12 @@
 [theme]
-primaryColor = "#7B2432"                 
-backgroundColor = "#F3EEE3"              
-secondaryBackgroundColor = "#DED2BC"     
-textColor = "#26231F"                    
-font = "serif"
+primaryColor = "#7D2230"
+backgroundColor = "#F6F3EB"
+secondaryBackgroundColor = "#DED2BE"
+textColor = "#23211E"
+font = "Cinzel"
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false
