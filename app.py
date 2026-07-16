@@ -585,7 +585,80 @@ with hero:
     with ll:
         st.title(t["title"])
         st.markdown(t["subtitle"])
-        st.image("1.png", width=850)
+        st.components.html("""
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;   /* پس‌زمینه‌ی شفاف برای هماهنگی با پس‌زمینه‌ی کلی */
+}
+canvas {
+    display: block;
+    width: 850px;   /* دقیقاً همان عرضی که st.image داشت */
+    height: 70px;   /* ارتفاع بنر را ۷۰px در نظر می‌گیریم */
+}
+</style>
+</head>
+<body>
+<canvas id="ecg" width="850" height="70"></canvas>
+<script>
+const canvas = document.getElementById("ecg");
+const ctx = canvas.getContext("2d");
+
+// ابعاد ثابت
+canvas.width = 850;
+canvas.height = 70;
+
+let offset = 0;
+
+function beat(x) {
+    ctx.lineTo(x, 35);
+    ctx.lineTo(x + 18, 35);
+    ctx.lineTo(x + 25, 31);
+    ctx.lineTo(x + 32, 39);
+    ctx.lineTo(x + 40, 35);
+    ctx.lineTo(x + 52, 35);
+    ctx.lineTo(x + 60, 18);
+    ctx.lineTo(x + 70, 58);
+    ctx.lineTo(x + 80, 5);
+    ctx.lineTo(x + 90, 65);
+    ctx.lineTo(x + 100, 35);
+    ctx.lineTo(x + 130, 35);
+    ctx.lineTo(x + 145, 28);
+    ctx.lineTo(x + 160, 35);
+    ctx.lineTo(x + 190, 35);
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
+    ctx.strokeStyle = "#FF4B4B";
+    ctx.lineWidth = 3;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.shadowColor = "#FF4B4B";
+    ctx.shadowBlur = 6;
+    ctx.moveTo(0, 35);
+    const spacing = 190;
+    for (let x = offset - spacing; x < canvas.width + spacing; x += spacing) {
+        beat(x);
+    }
+    ctx.stroke();
+    offset += 2;
+    if (offset >= spacing) {
+        offset = 0;
+    }
+    requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
+""", width=850)
 
 
 st.markdown("---")
