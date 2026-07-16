@@ -151,61 +151,48 @@ st.markdown("""
 
 <style>
 
-/* ================================
-   Hemoglyph Persian Font System
-   Vazirmatn - Safe Version
-   ================================ */
+/* ======================================
+   Hemoglyph Persian Font Configuration
+   Streamlit Cloud Safe
+====================================== */
 
 
-/* فونت اصلی برنامه */
-.stApp {
-    font-family: "Vazirmatn", sans-serif;
-}
-
-
-/* -------------------------------
-   متن‌های فارسی و عمومی
--------------------------------- */
-
-.stMarkdown,
-.stText,
-.stCaption,
-.stTitle,
-.stHeader,
-.stSubheader,
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-
-p,
-label,
-textarea,
-input,
-select,
+/* ---------- متن‌های Markdown ---------- */
 
 [data-testid="stMarkdownContainer"],
-[data-testid="stText"],
-[data-testid="stCaptionContainer"] {
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4,
+[data-testid="stMarkdownContainer"] h5,
+[data-testid="stMarkdownContainer"] h6 {
 
     font-family: "Vazirmatn", sans-serif !important;
 
 }
 
 
-/* -------------------------------
-   Streamlit widgets text
--------------------------------- */
 
-.stButton button,
-.stDownloadButton button,
+/* ---------- تیترهای Streamlit ---------- */
+
+.stTitle,
+.stHeader,
+.stSubheader {
+
+    font-family: "Vazirmatn", sans-serif !important;
+
+}
+
+
+
+/* ---------- متن داخل ویجت‌ها ---------- */
+
+
+.stTextInput label,
+.stNumberInput label,
 .stSelectbox label,
 .stMultiSelect label,
-.stNumberInput label,
-.stTextInput label,
 .stSlider label,
 .stRadio label,
 .stCheckbox label {
@@ -215,64 +202,78 @@ select,
 }
 
 
-/* -------------------------------
-   جدول‌ها
--------------------------------- */
 
-table,
-thead,
-tbody,
-tr,
-td,
-th {
+/* ---------- دکمه‌ها ---------- */
+
+
+.stButton button,
+.stDownloadButton button {
 
     font-family: "Vazirmatn", sans-serif !important;
 
 }
 
 
-/* -------------------------------
-   جلوگیری از تغییر آیکون‌ها
--------------------------------- */
+
+/* ---------- جدول ---------- */
 
 
-/* Material icons */
-.material-icons,
-.material-symbols-rounded,
-.material-symbols-outlined,
+[data-testid="stDataFrame"],
+[data-testid="stTable"] {
+
+    font-family: "Vazirmatn", sans-serif !important;
+
+}
+
+
+
+/* ======================================
+   Protect Streamlit Icons
+====================================== */
+
+
+/* آیکون‌های جدید Streamlit */
 
 [data-testid="stIconMaterial"],
 [data-testid="stExpanderToggleIcon"],
+.material-symbols-rounded,
+.material-symbols-outlined {
+
+    font-family: "Material Symbols Rounded" !important;
+
+}
+
+
+/* آیکون‌های قدیمی */
+
+.material-icons {
+
+    font-family: "Material Icons" !important;
+
+}
+
+
+
+/* جلوگیری از تاثیر فونت روی SVG */
 
 svg,
-svg * {
+svg path,
+svg circle,
+svg rect {
 
-    font-family: "Material Icons" !important;
-
-}
-
-
-/* دکمه‌های داخلی Streamlit */
-button svg,
-button svg path,
-.stButton svg,
-.stDownloadButton svg,
-.stSidebar svg {
-
-    font-family: "Material Icons" !important;
+    font-family: inherit !important;
 
 }
 
 
-/* -------------------------------
-   اعداد و کدها دست نخورند
--------------------------------- */
 
+/* جلوگیری از تغییر فونت shortcut ها */
+
+kbd,
 code,
-pre,
-kbd {
+pre {
 
-    font-family: "JetBrains Mono", monospace !important;
+    font-family: monospace !important;
 
 }
 
