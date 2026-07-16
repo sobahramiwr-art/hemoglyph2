@@ -147,33 +147,29 @@ div[data-testid="stImage"] img:hover {
 </style>
 """, unsafe_allow_html=True)
 st.markdown("""
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
-
 <style>
-    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+    @font-face {
+        font-family: 'Vazirmatn';
+        src: url('/app/static/Vazirmatn-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    
+    @font-face {
+        font-family: 'Vazirmatn';
+        src: url('/app/static/Vazirmatn-Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
 
-    /* اعمال فونت وزیر به کل اپلیکیشن */
-    .stApp, 
-    .stApp *,
-    h1, h2, h3, h4, h5, h6,
-    p, span, div, label, button, input, textarea,
-    .stMarkdown, .stTitle, .stHeader, .stSubheader,
-    .stText, .stAlert, .stButton, .stChatMessage,
-    .stSelectbox, .stTextInput, .stNumberInput {
+    /* اعمال فونت به کل اپ */
+    .stApp, .stApp *, h1, h2, h3, h4, h5, h6, p, label, div, span {
         font-family: 'Vazirmatn', serif !important;
     }
 
-    /* وزن مناسب برای عنوان اصلی */
-    h1 {
-        font-family: 'Vazirmatn' !important;
-        font-weight: 700 !important;
-    }
-
-    /* RTL برای فارسی */
-    [lang="fa"], [dir="rtl"] {
-        direction: rtl;
-        text-align: right;
-    }
+    h1 { font-weight: 700 !important; }
 </style>
 """, unsafe_allow_html=True)
 if not hasattr(FeatureCategory, "BONE_MINERAL"):
