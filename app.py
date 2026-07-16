@@ -16,8 +16,166 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+st.logo("logo.png")
 
-st.markdown(""" <style> /* Import Vazir font */ @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v33.1.0/dist/font-face.css'); /* ============================ PROTECT STREAMLIT ICONS ============================ */ [data-testid="stDecoration"], [data-testid="stSidebar"], .st-emotion-cache-1dp5m8t, .st-emotion-cache-1hskb1m, .st-emotion-cache-1v02s4x, .st-emotion-cache-1n76nqr, .st-emotion-cache-1o3jp5z, .st-emotion-cache-1p1m4ay, .st-emotion-cache-1p8iqe6, .st-emotion-cache-1p4g8p1, .st-emotion-cache-1p5wlh4, .st-emotion-cache-1p6s9q4, .st-emotion-cache-10trblm, .st-emotion-cache-1q8ddzd, .st-emotion-cache-183lzff, .st-emotion-cache-1cvow4s, .st-emotion-cache-16txtl3, .st-emotion-cache-1kyxreq, .st-emotion-cache-1v0mbdj, .st-emotion-cache-1r6slb0, .st-emotion-cache-1xarl3l, .st-emotion-cache-1wmy9hl, .st-emotion-cache-1avcm0n, .st-emotion-cache-1f3w014, .st-emotion-cache-1vtueo4, .st-emotion-cache-1v7uza4, .st-emotion-cache-1l6ema2, .st-emotion-cache-1dp5m8t, .st-emotion-cache-1hskb1m, .st-emotion-cache-1v02s4x, .st-emotion-cache-1n76nqr, .st-emotion-cache-1o3jp5z, .st-emotion-cache-1p1m4ay, .st-emotion-cache-1p8iqe6, .st-emotion-cache-1p4g8p1, .st-emotion-cache-1p5wlh4, .st-emotion-cache-1p6s9q4, svg, .material-icons, [class*="material-icons"], [class*="icon"] { font-family: 'Material Icons', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important; } /* ============================ GENERAL PAGE FONT (safe) ============================ */ .stApp, body, p, span, div, label, input, textarea, button, h1, h2, h3, h4, h5, h6, .stMarkdown, .stText, .stAlert, .stButton, .stChatMessage, .stSelectbox, .stTextInput, .stNumberInput, .stCheckbox, .stExpander, .stDataFrame, .stTabs, .stSidebar, .metric-label, .metric-value { font-family: 'Inter', 'Vazir', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; } /* ============================ PERSIAN TEXT ONLY ============================ */ [lang="fa"], .persian-text, *[lang="fa"] *, *:lang("fa") { font-family: 'Vazir', 'Inter', sans-serif !important; } /* ============================ OPTIONAL RTL SUPPORT ============================ */ [dir="rtl"] { direction: rtl; text-align: right; } </style> """, unsafe_allow_html=True)
+st.markdown("""
+<style>
+
+/* ---------- فقط اولین Columns صفحه (Header) ---------- */
+
+div[data-testid="stHorizontalBlock"]:first-of-type{
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.72),
+        rgba(255,255,255,.42)
+    );
+
+    border-radius:30px;
+
+    padding:35px;
+
+    margin-bottom:35px;
+
+    border:1px solid rgba(255,255,255,.45);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.10),
+        inset 0 1px rgba(255,255,255,.6);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+/* Glow */
+
+div[data-testid="stHorizontalBlock"]:first-of-type::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:-120px;
+    top:-120px;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        rgba(185,138,80,.18),
+        transparent 70%
+    );
+
+}
+
+
+/* ---------- لوگو ---------- */
+
+div[data-testid="stHorizontalBlock"]:first-of-type
+div[data-testid="stColumn"]:first-child 
+div[data-testid="stImage"] img {
+    width: 120px !important;      /* ← اندازه دلخواه خودت را اینجا بگذار */
+    max-width: 140px !important;
+    height: auto !important;
+    border-radius: 20px;
+    margin-top: 10px;
+    transition: .35s;
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);س
+
+}
+
+
+/* ---------- عنوان ---------- */
+
+div[data-testid="stHorizontalBlock"]:first-of-type h1{
+
+    font-size:62px !important;
+
+    font-weight:800 !important;
+
+    margin-bottom:6px !important;
+    border-radius:18px;
+
+    transition:.35s;
+
+}
+
+
+/* ---------- زیرعنوان ---------- */
+
+div[data-testid="stHorizontalBlock"]:first-of-type h5{
+
+    color:#64748B !important;
+
+    font-size:23px !important;
+
+}
+
+
+/* ---------- تصویر هیروگلیف ---------- */
+div[data-testid="stHorizontalBlock"]:first-of-type
+div[data-testid="stColumn"]:last-child 
+div[data-testid="stImage"] img {
+    width: 850px !important;
+    border-radius: 18px;
+    margin-top: 18px;
+    transition: .35s;
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+}
+
+
+div[data-testid="stHorizontalBlock"]:first-of-type
+div[data-testid="stImage"]:last-child img:hover{
+
+    transform:scale(1.02);
+
+}
+/* Hover Effect برای لوگو */
+div[data-testid="stHorizontalBlock"]:first-of-type
+div[data-testid="stColumn"]:first-child 
+div[data-testid="stImage"] img:hover {
+    transform: scale(1.03);
+}
+</style>
+""", unsafe_allow_html=True)
+st.markdown("""
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+
+<style>
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+    /* اعمال فونت وزیر به کل اپلیکیشن */
+    .stApp, 
+    .stApp *,
+    h1, h2, h3, h4, h5, h6,
+    p, span, div, label, button, input, textarea,
+    .stMarkdown, .stTitle, .stHeader, .stSubheader,
+    .stText, .stAlert, .stButton, .stChatMessage,
+    .stSelectbox, .stTextInput, .stNumberInput {
+        font-family: 'Vazirmatn', serif !important;
+    }
+
+    /* وزن مناسب برای عنوان اصلی */
+    h1 {
+        font-family: 'Vazirmatn' !important;
+        font-weight: 700 !important;
+    }
+
+    /* RTL برای فارسی */
+    [lang="fa"], [dir="rtl"] {
+        direction: rtl;
+        text-align: right;
+    }
+</style>
+""", unsafe_allow_html=True)
 if not hasattr(FeatureCategory, "BONE_MINERAL"):
     FeatureCategory.BONE_MINERAL = "Bone & Mineral Panel"
 
@@ -99,12 +257,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 TRANSLATIONS = {
     "en": {
-        "title": "🧬 Hemoglyph",
+        "title": "Hemoglyph",
         "subtitle": "##### Decoding the Ancient Language of Your Blood",
         "presets_heading": "##### 🚀 Quick Patient Presets",
         "workflow_heading": "📋Steps",
         "step_label": "**Step {step} of 4**",
-        "step1_title": "### ℹ️ Step 1: Clinical Profile ",
+        "step1_title": "### 👤 Step 1: Clinical Profile ",
         "step1_desc": "Enter basic patient parameters, vitals, lifestyle habits, and hereditary history.",
         "step2_title": "### 🧪 Step 2: Select Lab Panels",
         "step2_desc": "Choose the biomarker groups to evaluate. Only the selected panels will appear in the next step.",
@@ -153,12 +311,12 @@ TRANSLATIONS = {
         "summary_language": "en",
     },
     "fa": {
-        "title": "هموگلیف🧬 ",
+        "title": "هموگلیف",
         "subtitle": "##### رمزگشایی از زبان باستانی خون شما",
         "presets_heading": "##### 🚀 پروفایل‌های آماده بیمار",
         "workflow_heading": "📋 مراحل",
         "step_label": "**مرحله {step} از ۴**",
-        "step1_title": "### ℹ️ مرحله ۱: مشخصات بالینی ",
+        "step1_title": "### 👤 مرحله ۱: مشخصات بالینی ",
         "step1_desc": "اطلاعات پایه بیمار، علائم حیاتی، عادات زندگی و سابقه خانوادگی را وارد کنید.",
         "step2_title": "### 🧪 مرحله ۲: انتخاب پنل‌های آزمایشگاهی",
         "step2_desc": "گروه‌های بیومارکر مورد نظر خود را برای ارزیابی انتخاب کنید. فقط پنل‌های انتخاب‌شده در مرحله بعد نمایش داده خواهند شد.",
@@ -311,14 +469,22 @@ PRESETS = {
         "Creatinine": 0.8, "BUN": 13.0, "Sodium": 140.0, "Potassium": 4.0, "ALT": 21.0, "AST": 19.0, "CRP": 1.5
     }
 }
-with rr: 
-    st.image("logo.png", width=120)
-with ll:    
-    st.title(t["title"])
-    st.markdown(t["subtitle"])
-    st.image("1.png", width=500)    
-st.markdown("---")
+hero = st.container(border=False)
 
+with hero:
+
+    rr, ll = st.columns([1,8], gap="large")
+
+    with rr:
+        st.image("logo.png", width=899)
+
+    with ll:
+        st.title(t["title"])
+        st.markdown(t["subtitle"])
+        st.image("1.png", width=850)
+
+
+st.markdown("---")
 st.markdown(t["presets_heading"])
 cols = st.columns(len(PRESETS))
 for i, (name, preset_vals) in enumerate(PRESETS.items()):
