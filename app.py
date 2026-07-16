@@ -586,6 +586,7 @@ with hero:
     with ll:
         st.title(t["title"])
         st.markdown(t["subtitle"])
+        st.write("")
         components.html("""
 <!DOCTYPE html>
 <html>
