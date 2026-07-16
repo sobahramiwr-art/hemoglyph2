@@ -9,6 +9,7 @@ from interpretation import interpret_lab_data
 from prediction import predict_2year_risks
 from disease_guidelines import DISEASE_GUIDELINES
 from AI import BloodLabChatbot
+import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="Hemoglyph",
