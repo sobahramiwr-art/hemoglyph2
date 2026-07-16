@@ -152,48 +152,49 @@ st.markdown("""
 <style>
     @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
-    /* ==================== فونت وزیر برای متن‌ها ==================== */
-    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6,
-    .stApp p, .stApp label, .stApp span, .stApp div.stMarkdown,
-    .stTitle, .stHeader, .stSubheader, .stText, .stAlert {
+    /* فونت وزیر برای تمام متن‌های فارسی (حتی بدون lang="fa") */
+    .stApp * {
+        font-family: 'Inter', serif;
+    }
+
+    /* تشخیص متن فارسی و اعمال وزیر */
+    .stApp *:is(
+        h1, h2, h3, h4, h5, h6, p, span, div, label, li, td, th, button, 
+        .stMarkdown, .stText, .stTitle, .stHeader, .stSubheader
+    ):lang(fa),
+    .stApp [lang="fa"] *,
+    .stApp *:lang(fa) {
         font-family: 'Vazirmatn', serif !important;
     }
 
-    /* ==================== حفاظت فوق‌العاده قوی از آیکون‌ها ==================== */
-    svg,
-    i,
-    .material-icons,
+    /* اعمال وزیر به متن‌هایی که حاوی کاراکتر فارسی هستند */
+    .stApp * {
+        font-family: 'Inter', serif;
+    }
+
+    /* فونت وزیر برای عناصر حاوی متن فارسی */
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5,
+    .stApp p, .stApp label, .stApp span, .stApp div {
+        font-family: 'Vazirmatn', serif !important;
+    }
+
+    /* حفاظت قوی از آیکون‌ها */
+    svg, 
+    i, 
+    .material-icons, 
     [class*="material-icons"],
-    [data-testid="stSidebar"] svg,
-    [data-testid="stSidebar"] i,
-    button svg,
+    button svg, 
+    .stSidebar svg, 
     .stButton svg,
     .stCheckbox svg,
     .stRadio svg,
-    .stSelectbox svg,
-    .stMultiSelect svg,
-    .st-expander svg,
-    .stTabs svg,
-    [role="img"],
-    .stDecoration svg {
-        font-family: 'Material Icons' !important;
-        font-style: normal !important;
-    }
-
-    /* بلاک نهایی - هیچ چیز آیکون‌مانند وزیر نشود */
-    .stApp * svg,
-    .stApp i,
-    .stSidebar * svg,
-    .stSidebar i,
-    .stButton * svg,
-    .stCheckbox * svg {
+    [role="img"] {
         font-family: 'Material Icons' !important;
     }
 
-    /* RTL */
-    [lang="fa"] {
-        direction: rtl;
-        text-align: right;
+    /* جلوگیری از تاثیر روی آیکون‌ها */
+    .stApp svg, .stApp i, .stSidebar * svg {
+        font-family: 'Material Icons' !important;
     }
 </style>
 """, unsafe_allow_html=True)
