@@ -207,51 +207,47 @@ QUAL_FEATURES = {
 }
 
 
+# ====================== فونت وزیر + حفظ آیکون‌ها ======================
 st.markdown("""
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+
 <style>
-    .stApp {
-        background-color: #f8fafc;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+    /* ====================== فونت وزیر برای متن‌ها ====================== */
+    .stApp, 
+    h1, h2, h3, h4, h5, h6,
+    p, label, span, div:not([class*="icon"]),
+    .stMarkdown, .stTitle, .stHeader, .stSubheader,
+    .stText, .stAlert, .stButton > button, 
+    .stSelectbox, .stTextInput, .stNumberInput {
+        font-family: 'Vazirmatn', serif !important;
     }
-    h1, h2, h3, h4, h5 {
-        color: #0f172a !important;
-        font-weight: 600 !important;
-        letter-spacing: -0.025em;
+
+    /* ====================== حفظ آیکون‌ها ====================== */
+    svg, 
+    .material-icons, 
+    [class*="material-icons"], 
+    [data-testid="stDecoration"],
+    .st-emotion-cache-1dp5m8t, 
+    .st-emotion-cache-1hskb1m,
+    button svg, 
+    .stButton svg,
+    .stCheckbox svg,
+    .stRadio svg,
+    .stSelectbox svg {
+        font-family: 'Material Icons', sans-serif !important;
     }
-    .clinical-card {
-        background-color: #ffffff;
-        padding: 24px;
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.02);
-        margin-bottom: 20px;
+
+    /* جلوگیری از اعمال فونت وزیر به آیکون‌ها */
+    i, .icon, [role="img"], .stIcon {
+        font-family: 'Material Icons' !important;
     }
-    .diagnosis-badge-present {
-        background-color: #fef2f2;
-        border: 1px solid #fecaca;
-        color: #991b1b;
-        padding: 16px 20px;
-        border-radius: 8px;
-        margin-bottom: 12px;
-    }
-    .diagnosis-badge-absent {
-        background-color: #f0fdf4;
-        border: 1px solid #bbf7d0;
-        color: #166534;
-        padding: 16px 20px;
-        border-radius: 8px;
-        margin-bottom: 12px;
-    }
-    .metric-value {
-        font-size: 24px;
-        font-weight: 700;
-        color: #1e293b;
-    }
-    .metric-label {
-        font-size: 13px;
-        color: #64748b;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+
+    /* RTL */
+    [lang="fa"], [dir="rtl"] {
+        direction: rtl;
+        text-align: right;
     }
 </style>
 """, unsafe_allow_html=True)
