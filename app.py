@@ -660,7 +660,7 @@ draw();
 </script>
 </body>
 </html>
-""", width=850)
+""", width=1050)
 
 
 st.markdown("---")
