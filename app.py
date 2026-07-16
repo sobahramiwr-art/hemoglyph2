@@ -146,30 +146,41 @@ div[data-testid="stImage"] img:hover {
 }
 </style>
 """, unsafe_allow_html=True)
+# ====================== فونت وزیر + حفظ کامل آیکون‌ها ======================
 st.markdown("""
-<style>
-    @font-face {
-        font-family: 'Vazirmatn';
-        src: url('/app/static/Vazirmatn-Regular.woff2') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
-    
-    @font-face {
-        font-family: 'Vazirmatn';
-        src: url('/app/static/Vazirmatn-Bold.woff2') format('woff2');
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-    }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 
-    /* اعمال فونت به کل اپ */
-    .stApp, .stApp *, h1, h2, h3, h4, h5, h6, p, label, div, span {
+<style>
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+    /* ==================== فونت وزیر فقط برای متن ==================== */
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6,
+    .stApp p, .stApp label, .stApp span, .stApp div,
+    .stMarkdown, .stTitle, .stHeader, .stSubheader, 
+    .stText, .stAlert, .stButton > button, .stSelectbox label,
+    .stTextInput label, .stNumberInput label {
         font-family: 'Vazirmatn', serif !important;
     }
 
-    h1 { font-weight: 700 !important; }
+    /* ==================== حفظ آیکون‌ها (خیلی مهم) ==================== */
+    svg,
+    .material-icons,
+    [class*="material-icons"],
+    [data-testid="stDecoration"] *,
+    button svg,
+    .stButton svg,
+    .stCheckbox svg,
+    .stRadio svg,
+    .stSelectbox svg,
+    .stMultiSelect svg,
+    i, em, .icon, [role="img"] {
+        font-family: 'Material Icons', sans-serif !important;
+    }
+
+    /* جلوگیری از تاثیر فونت وزیر روی آیکون‌ها */
+    .stApp * svg, .stApp * i {
+        font-family: 'Material Icons' !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 if not hasattr(FeatureCategory, "BONE_MINERAL"):
