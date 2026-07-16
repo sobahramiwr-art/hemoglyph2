@@ -600,7 +600,7 @@ with hero:
     with ll:
         st.title(t["title"])
         st.markdown(t["subtitle"])
-#        st.write("")
+        st.write("")
         components.html("""
 <!DOCTYPE html>
 <html>
@@ -679,7 +679,9 @@ draw();
             qr_bytes = f.read()
         qr_b64 = base64.b64encode(qr_bytes).decode()
         st.markdown(
-    f'<img src="data:image/png;base64,{qr_b64}" style="width: 120px; height: auto; margin-top: 10px;">',
+    f'<div style="display: flex; justify-content: flex-end;">'
+    f'<img src="data:image/png;base64,{qr_b64}" style="width: 80px; height: auto; margin-top: 10px;">'
+    f'</div>',
     unsafe_allow_html=True
 )
 
