@@ -10,6 +10,7 @@ from prediction import predict_2year_risks
 from disease_guidelines import DISEASE_GUIDELINES
 from AI import BloodLabChatbot
 import streamlit.components.v1 as components
+import base64
 
 st.set_page_config(
     page_title="Hemoglyph",
@@ -674,7 +675,13 @@ draw();
 </body>
 </html>
 """, width=1050)
-        st.image("QR.png")
+        with open("QR.png", "rb") as f:
+    qr_bytes = f.read()
+qr_b64 = base64.b64encode(qr_bytes).decode()
+st.markdown(
+    f'<img src="data:image/png;base64,{qr_b64}" style="width: 80px; height: auto; margin-top: 10px;">',
+    unsafe_allow_html=True
+)
 
 
 st.markdown("---")
