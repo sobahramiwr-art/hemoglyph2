@@ -286,7 +286,7 @@ st.markdown("""
 div[data-testid="stHorizontalBlock"]:first-of-type
 div[data-testid="stColumn"]:last-child
 div[data-testid="stImage"] img[src*="QR.png"] {
-    width: 80px !important;            /* ← هر اندازه‌ای که می‌خواهید */
+    width: 20px !important;            /* ← هر اندازه‌ای که می‌خواهید */
     height: auto !important;
     image-rendering: auto;
     border-radius: 0;
