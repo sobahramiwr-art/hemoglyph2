@@ -9,6 +9,7 @@ from interpretation import interpret_lab_data
 from prediction import predict_2year_risks
 from disease_guidelines import DISEASE_GUIDELINES
 from AI import BloodLabChatbot
+import base64
 
 st.set_page_config(
     page_title="Hemoglyph",
@@ -16,7 +17,194 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
 st.logo("logo.png")
+def image_to_base64(path):
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+logo = image_to_base64("logo.png")
+hero = image_to_base64("1.png")
+st.markdown("""
+<style>
+
+.hero{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:42px;
+
+    padding:35px 45px;
+    margin:8px 0 35px 0;
+
+    border-radius:28px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.72),
+        rgba(255,255,255,0.48)
+    );
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,0.45);
+
+    box-shadow:
+        0 18px 45px rgba(15,23,42,0.09),
+        inset 0 1px 0 rgba(255,255,255,0.60);
+
+    overflow:hidden;
+}
+
+/* Glow */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:340px;
+    height:340px;
+
+    right:-130px;
+    top:-130px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(186,143,79,0.18),
+        transparent 70%
+    );
+}
+
+
+/******** LEFT ********/
+
+.hero-left{
+
+    flex:0 0 145px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.hero-left img{
+
+    width:130px;
+
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,0.12));
+
+}
+
+
+/******** RIGHT ********/
+
+.hero-right{
+
+    flex:1;
+
+}
+
+
+.title-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+.dna{
+
+    font-size:40px;
+
+}
+
+
+.hero-title{
+
+    margin:0;
+
+    color:#17212B;
+
+    font-size:58px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+}
+
+
+.hero-sub{
+
+    margin-top:10px;
+
+    color:#4B5563;
+
+    font-size:22px;
+
+    font-weight:500;
+
+}
+
+
+.line{
+
+    margin-top:20px;
+
+    width:170px;
+
+    height:4px;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        90deg,
+        #B98A50,
+        transparent
+    );
+
+}
+
+
+.hero-image{
+
+    margin-top:28px;
+
+}
+
+
+.hero-image img{
+
+    width:680px;
+
+    max-width:100%;
+
+    display:block;
+
+    transition:0.3s;
+
+}
+
+.hero-image img:hover{
+
+    transform:scale(1.02);
+
+}
+
+</style>
+""", unsafe_allow_html=True)
 st.markdown(""" <style> /* Import Vazir font */ @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v33.1.0/dist/font-face.css'); /* ============================ PROTECT STREAMLIT ICONS ============================ */ [data-testid="stDecoration"], [data-testid="stSidebar"], .st-emotion-cache-1dp5m8t, .st-emotion-cache-1hskb1m, .st-emotion-cache-1v02s4x, .st-emotion-cache-1n76nqr, .st-emotion-cache-1o3jp5z, .st-emotion-cache-1p1m4ay, .st-emotion-cache-1p8iqe6, .st-emotion-cache-1p4g8p1, .st-emotion-cache-1p5wlh4, .st-emotion-cache-1p6s9q4, .st-emotion-cache-10trblm, .st-emotion-cache-1q8ddzd, .st-emotion-cache-183lzff, .st-emotion-cache-1cvow4s, .st-emotion-cache-16txtl3, .st-emotion-cache-1kyxreq, .st-emotion-cache-1v0mbdj, .st-emotion-cache-1r6slb0, .st-emotion-cache-1xarl3l, .st-emotion-cache-1wmy9hl, .st-emotion-cache-1avcm0n, .st-emotion-cache-1f3w014, .st-emotion-cache-1vtueo4, .st-emotion-cache-1v7uza4, .st-emotion-cache-1l6ema2, .st-emotion-cache-1dp5m8t, .st-emotion-cache-1hskb1m, .st-emotion-cache-1v02s4x, .st-emotion-cache-1n76nqr, .st-emotion-cache-1o3jp5z, .st-emotion-cache-1p1m4ay, .st-emotion-cache-1p8iqe6, .st-emotion-cache-1p4g8p1, .st-emotion-cache-1p5wlh4, .st-emotion-cache-1p6s9q4, svg, .material-icons, [class*="material-icons"], [class*="icon"] { font-family: 'Material Icons', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important; } /* ============================ GENERAL PAGE FONT (safe) ============================ */ .stApp, body, p, span, div, label, input, textarea, button, h1, h2, h3, h4, h5, h6, .stMarkdown, .stText, .stAlert, .stButton, .stChatMessage, .stSelectbox, .stTextInput, .stNumberInput, .stCheckbox, .stExpander, .stDataFrame, .stTabs, .stSidebar, .metric-label, .metric-value { font-family: 'Inter', 'Vazir', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; } /* ============================ PERSIAN TEXT ONLY ============================ */ [lang="fa"], .persian-text, *[lang="fa"] *, *:lang("fa") { font-family: 'Vazir', 'Inter', sans-serif !important; } /* ============================ OPTIONAL RTL SUPPORT ============================ */ [dir="rtl"] { direction: rtl; text-align: right; } </style> """, unsafe_allow_html=True)
 if not hasattr(FeatureCategory, "BONE_MINERAL"):
     FeatureCategory.BONE_MINERAL = "Bone & Mineral Panel"
@@ -311,6 +499,51 @@ PRESETS = {
         "Creatinine": 0.8, "BUN": 13.0, "Sodium": 140.0, "Potassium": 4.0, "ALT": 21.0, "AST": 19.0, "CRP": 1.5
     }
 }
+st.markdown(f"""
+
+<div class="hero">
+
+    <div class="hero-left">
+
+        <img
+            src="data:image/png;base64,{logo}"
+            alt="logo"
+        >
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="title-row">
+
+            <div class="dna">🧬</div>
+
+            <h1 class="hero-title">
+                Hemoglyph
+            </h1>
+
+        </div>
+
+        <div class="hero-sub">
+            Decoding the Ancient Language of Your Blood
+        </div>
+
+        <div class="line"></div>
+
+        <div class="hero-image">
+
+            <img
+                src="data:image/png;base64,{hero}"
+                alt="hero"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+""", unsafe_allow_html=True)
 with rr: 
     st.image("logo.png", width=120)
 with ll:    
