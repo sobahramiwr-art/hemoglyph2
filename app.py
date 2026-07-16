@@ -283,11 +283,15 @@ pre {
 """, unsafe_allow_html=True)
 st.markdown("""
 <style>
-img[src*="QR.png"] {
-    width: 80px !important;
+div[data-testid="stHorizontalBlock"]:first-of-type
+div[data-testid="stColumn"]:last-child
+div[data-testid="stImage"] img[src*="QR.png"] {
+    width: 80px !important;            /* ← هر اندازه‌ای که می‌خواهید */
     height: auto !important;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    image-rendering: auto;
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 10px;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -670,7 +674,7 @@ draw();
 </body>
 </html>
 """, width=1050)
-        st.image("QR.png", width=1000)
+        st.image("QR.png")
 
 
 st.markdown("---")
