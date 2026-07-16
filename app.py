@@ -361,8 +361,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 TRANSLATIONS = {
     "en": {
-        "title": "Hemoglyph",
-        "subtitle": "##### Decoding the Ancient Language of Your Blood",
+        "title": "Hemoglyph AI Assistant",
+        "subtitle": "##### Medical AI Assistant",
         "presets_heading": "##### 🚀 Quick Patient Presets",
         "workflow_heading": "📋Steps",
         "step_label": "**Step {step} of 4**",
@@ -415,8 +415,8 @@ TRANSLATIONS = {
         "summary_language": "en",
     },
     "fa": {
-        "title": "هموگلیف",
-        "subtitle": "##### رمزگشایی از زبان باستانی خون شما",
+        "title": " دستیار هوش مصنوعی هموگلیف",
+        "subtitle": "##### دستیار هوش مصنوعی پزشکی",
         "presets_heading": "##### 🚀 پروفایل‌های آماده بیمار",
         "workflow_heading": "📋 مراحل",
         "step_label": "**مرحله {step} از ۴**",
