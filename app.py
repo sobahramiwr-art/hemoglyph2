@@ -153,32 +153,36 @@ st.markdown("""
 <style>
     @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
-    /* ==================== فونت وزیر فقط برای متن ==================== */
-    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6,
-    .stApp p, .stApp label, .stApp span, .stApp div,
-    .stMarkdown, .stTitle, .stHeader, .stSubheader, 
-    .stText, .stAlert, .stButton > button, .stSelectbox label,
-    .stTextInput label, .stNumberInput label {
+    /* فونت وزیر فقط برای متن‌های معمولی */
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5,
+    .stApp p, .stApp label, .stApp span:not(.material-icons),
+    .stMarkdown, .stTitle, .stHeader, .stSubheader,
+    .stButton > button, .stSelectbox label, .stTextInput label {
         font-family: 'Vazirmatn', serif !important;
     }
 
-    /* ==================== حفظ آیکون‌ها (خیلی مهم) ==================== */
-    svg,
-    .material-icons,
-    [class*="material-icons"],
-    [data-testid="stDecoration"] *,
+    /* حفاظت قوی از تمام آیکون‌ها */
+    svg, 
+    i, 
+    .material-icons, 
+    [class*="material-icons"], 
+    [data-testid*="st"] svg,
     button svg,
+    .stSidebar svg,
+    .stSidebar i,
     .stButton svg,
     .stCheckbox svg,
     .stRadio svg,
     .stSelectbox svg,
     .stMultiSelect svg,
-    i, em, .icon, [role="img"] {
-        font-family: 'Material Icons', sans-serif !important;
+    .st-expander svg {
+        font-family: 'Material Icons' !important;
     }
 
-    /* جلوگیری از تاثیر فونت وزیر روی آیکون‌ها */
-    .stApp * svg, .stApp * i {
+    /* جلوگیری از ارث‌بری فونت وزیر به آیکون‌ها */
+    .stApp * svg, 
+    .stApp * i.material-icons,
+    .stSidebar * svg {
         font-family: 'Material Icons' !important;
     }
 </style>
