@@ -152,27 +152,49 @@ st.markdown("""
 <style>
     @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
-    /* اعمال فونت وزیر به کل اپلیکیشن */
-    .stApp, 
-    .stApp *,
-    h1, h2, h3, h4, h5, h6,
-    p, span, div, label, button, input, textarea,
-    .stMarkdown, .stTitle, .stHeader, .stSubheader,
-    .stText, .stAlert, .stButton, .stChatMessage,
-    .stSelectbox, .stTextInput, .stNumberInput {
+    /* فونت وزیر برای تمام متن‌های فارسی (حتی بدون lang="fa") */
+    .stApp * {
+        font-family: 'Inter', serif;
+    }
+
+    /* تشخیص متن فارسی و اعمال وزیر */
+    .stApp *:is(
+        h1, h2, h3, h4, h5, h6, p, span, div, label, li, td, th, button, 
+        .stMarkdown, .stText, .stTitle, .stHeader, .stSubheader
+    ):lang(fa),
+    .stApp [lang="fa"] *,
+    .stApp *:lang(fa) {
         font-family: 'Vazirmatn', serif !important;
     }
 
-    /* وزن مناسب برای عنوان اصلی */
-    h1 {
-        font-family: 'Vazirmatn' !important;
-        font-weight: 700 !important;
+    /* اعمال وزیر به متن‌هایی که حاوی کاراکتر فارسی هستند */
+    .stApp * {
+        font-family: 'Inter', serif;
     }
 
-    /* RTL برای فارسی */
-    [lang="fa"], [dir="rtl"] {
-        direction: rtl;
-        text-align: right;
+    /* فونت وزیر برای عناصر حاوی متن فارسی */
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5,
+    .stApp p, .stApp label, .stApp span, .stApp div {
+        font-family: 'Vazirmatn', serif !important;
+    }
+
+    /* حفاظت قوی از آیکون‌ها */
+    svg, 
+    i, 
+    .material-icons, 
+    [class*="material-icons"],
+    button svg, 
+    .stSidebar svg, 
+    .stButton svg,
+    .stCheckbox svg,
+    .stRadio svg,
+    [role="img"] {
+        font-family: 'Material Icons' !important;
+    }
+
+    /* جلوگیری از تاثیر روی آیکون‌ها */
+    .stApp svg, .stApp i, .stSidebar * svg {
+        font-family: 'Material Icons' !important;
     }
 </style>
 """, unsafe_allow_html=True)
