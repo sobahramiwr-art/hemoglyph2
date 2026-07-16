@@ -660,7 +660,11 @@ draw();
 </body>
 </html>
 """, width=1050)
-        st.image("QR.png", width=80)
+        st.markdown("""
+<div style="display: flex; justify-content: flex-start;">
+    <img src="QR.png" style="width: 80px; height: auto; image-rendering: auto;" />
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("---")
 st.markdown(t["presets_heading"])
