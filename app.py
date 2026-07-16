@@ -676,9 +676,9 @@ draw();
 </html>
 """, width=1050)
         with open("QR.png", "rb") as f:
-    qr_bytes = f.read()
-qr_b64 = base64.b64encode(qr_bytes).decode()
-st.markdown(
+            qr_bytes = f.read()
+        qr_b64 = base64.b64encode(qr_bytes).decode()
+        st.markdown(
     f'<img src="data:image/png;base64,{qr_b64}" style="width: 80px; height: auto; margin-top: 10px;">',
     unsafe_allow_html=True
 )
