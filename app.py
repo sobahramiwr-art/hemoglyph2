@@ -29,7 +29,6 @@ st.markdown("""
 div[data-testid="stHorizontalBlock"]:first-of-type{
 
     background:linear-gradient(
-        135deg,
         rgba(255,255,255,.72),
         rgba(255,255,255,.42)
     );
