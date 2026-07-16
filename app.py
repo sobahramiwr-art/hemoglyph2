@@ -577,7 +577,7 @@ PRESETS = {
 hero = st.container(border=False)
 
 with hero:
-    st.image("QR.png", width=899)
+    st.image("QR.png", width=100)
     rr, ll = st.columns([1,8], gap="large")
 
     with rr:
