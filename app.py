@@ -281,6 +281,16 @@ pre {
 
 </style>
 """, unsafe_allow_html=True)
+st.markdown("""
+<style>
+img[src*="QR.png"] {
+    width: 80px !important;
+    height: auto !important;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+</style>
+""", unsafe_allow_html=True)
 if not hasattr(FeatureCategory, "BONE_MINERAL"):
     FeatureCategory.BONE_MINERAL = "Bone & Mineral Panel"
 
@@ -660,17 +670,8 @@ draw();
 </body>
 </html>
 """, width=1050)
-        st.image("QR.png", width=80)
-        st.markdown("""
-<style>
-img[src*="QR.png"] {
-    width: 80px !important;
-    height: auto !important;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-}
-</style>
-""", unsafe_allow_html=True)
+        st.image("QR.png", width=1000)
+
 
 st.markdown("---")
 st.markdown(t["presets_heading"])
