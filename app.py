@@ -17,7 +17,15 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 st.logo("logo.png")
-
+# Force Material Icons in Sidebar
+st.markdown("""
+<style>
+    section[data-testid="stSidebar"] * svg,
+    section[data-testid="stSidebar"] i {
+        font-family: 'Material Icons' !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 st.markdown("""
 <style>
 
@@ -146,43 +154,43 @@ div[data-testid="stImage"] img:hover {
 }
 </style>
 """, unsafe_allow_html=True)
-# ====================== فونت وزیر + حفظ کامل آیکون‌ها ======================
 st.markdown("""
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
 
 <style>
     @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
-    /* فونت وزیر فقط برای متن‌های معمولی */
-    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5,
-    .stApp p, .stApp label, .stApp span:not(.material-icons),
-    .stMarkdown, .stTitle, .stHeader, .stSubheader,
-    .stButton > button, .stSelectbox label, .stTextInput label {
+    /* ==================== فونت وزیر برای متن ==================== */
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6,
+    .stApp p, .stApp label, .stApp .stMarkdown, 
+    .stTitle, .stHeader, .stSubheader, .stText {
         font-family: 'Vazirmatn', serif !important;
     }
 
-    /* حفاظت قوی از تمام آیکون‌ها */
-    svg, 
-    i, 
-    .material-icons, 
-    [class*="material-icons"], 
-    [data-testid*="st"] svg,
-    button svg,
-    .stSidebar svg,
-    .stSidebar i,
-    .stButton svg,
-    .stCheckbox svg,
-    .stRadio svg,
-    .stSelectbox svg,
-    .stMultiSelect svg,
-    .st-expander svg {
-        font-family: 'Material Icons' !important;
+    /* ==================== حفاظت بسیار قوی از آیکون‌ها ==================== */
+    svg,
+    i,
+    .material-icons,
+    [class*="material-icons"],
+    [data-testid="stSidebar"] *,
+    [data-testid="stDecoration"] *,
+    button *,
+    .stButton *,
+    .stCheckbox *,
+    .stRadio *,
+    .stSelectbox *,
+    .stMultiSelect *,
+    .st-expander *,
+    .stTabs *,
+    .stAlert * {
+        font-family: 'Material Icons', sans-serif !important;
     }
 
-    /* جلوگیری از ارث‌بری فونت وزیر به آیکون‌ها */
-    .stApp * svg, 
-    .stApp * i.material-icons,
-    .stSidebar * svg {
+    /* بلاک نهایی - هیچ آیکونی وزیر نشود */
+    .stApp svg,
+    .stApp i.material-icons,
+    .stSidebar svg,
+    .stSidebar i {
         font-family: 'Material Icons' !important;
     }
 </style>
