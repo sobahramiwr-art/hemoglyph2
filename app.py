@@ -577,7 +577,6 @@ PRESETS = {
 hero = st.container(border=False)
 
 with hero:
-    st.image("QR.png", width=250)
     rr, ll = st.columns([1,8], gap="large")
 
     with rr:
@@ -661,7 +660,7 @@ draw();
 </body>
 </html>
 """, width=1050)
-        st.image("QR.png", width=250)
+        st.image("QR.png", width=80)
 
 st.markdown("---")
 st.markdown(t["presets_heading"])
