@@ -661,7 +661,7 @@ draw();
 </body>
 </html>
 """, width=1050)
-
+    st.image("QR.png")
 
 st.markdown("---")
 st.markdown(t["presets_heading"])
